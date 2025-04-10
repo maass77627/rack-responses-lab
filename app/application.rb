@@ -4,23 +4,15 @@ def call(env)
 
     response = Rack::Response.new
 
-    time = Time.now()
+    if Time.now.strftime("%p") == "AM"
+        response.write "Good Morning"
+    else
+        response.write "Good Afternoon"
 
-    if time.strftime("%p") == "AM"
-        response.write "good morning"
-    else 
-        response.write "good afternoon"
     end
-
     response.finish
-
-
-    # %I:%M 
-
+    
+    end
 end 
 
 
-
-
-
-end
